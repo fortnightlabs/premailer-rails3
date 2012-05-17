@@ -23,6 +23,7 @@ module PremailerRails
           body premailer.to_plain_text
         end unless message.text_part
 
+        message.parts.delete message.html_part
         message.html_part do
           content_type "text/html; charset=#{charset}"
           body premailer.to_inline_css
